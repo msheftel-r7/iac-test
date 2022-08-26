@@ -1,0 +1,27 @@
+on:
+  push:
+    # triggers on pushing to non-trunk branches
+    # branches-ignore:    
+    #  - master
+    #  - main
+
+jobs:
+  ics-scan-and-upload:
+    name: insightCloudSec scan and upload
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Scan cloudformation template
+        uses: rapid7/insightcloudsec-actions@latest
+        with:
+          api_key: ${{ secrets.ics_api_key }}
+          base_url: ${{ secrets.ics_base_url }}
+          config_name: Marc Github Test
+          scan_name: Scan on Push
+          target: /sample_tf/static_website_ssl_cloudfront_private_s3/plan.json
+      # recommended to surface results to Github Code Scanning
+      - name: Upload SARIF file
+        if: always()
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: scan_output.sarif
