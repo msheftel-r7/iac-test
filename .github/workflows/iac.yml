@@ -12,7 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Scan terraform template
-        uses: rapid7/insightcloudsec-actions@latest
+        # uses: rapid7/insightcloudsec-actions@latest
+        uses: rapid7/insightcloudsec-actions
         with:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
