@@ -1,0 +1,410 @@
+{
+    "format_version": "1.0",
+    "terraform_version": "1.1.7",
+    "planned_values": {
+        "root_module": {
+            "resources": [
+                {
+                    "address": "aws_mq_broker.queue",
+                    "mode": "managed",
+                    "type": "aws_mq_broker",
+                    "name": "queue",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "apply_immediately": true,
+                        "auto_minor_version_upgrade": true,
+                        "broker_name": "max-queue",
+                        "configuration": [
+                            {}
+                        ],
+                        "deployment_mode": "SINGLE_INSTANCE",
+                        "encryption_options": [],
+                        "engine_type": "ActiveMQ",
+                        "engine_version": "5.15.15",
+                        "host_instance_type": "mq.t2.micro",
+                        "ldap_server_metadata": [],
+                        "logs": [
+                            {
+                                "audit": "true",
+                                "general": "true"
+                            }
+                        ],
+                        "maintenance_window_start_time": [
+                            {
+                                "day_of_week": "SUNDAY",
+                                "time_of_day": "02:00",
+                                "time_zone": "UTC"
+                            }
+                        ],
+                        "publicly_accessible": false,
+                        "security_groups": null,
+                        "subnet_ids": [
+                            "123.121.123.121"
+                        ],
+                        "tags": null,
+                        "user": [
+                            {
+                                "console_access": true,
+                                "groups": [],
+                                "password": "testtsdsfesttesttesttesttesttesttest",
+                                "username": "root"
+                            }
+                        ]
+                    },
+                    "sensitive_values": {
+                        "configuration": [
+                            {}
+                        ],
+                        "encryption_options": [],
+                        "instances": [],
+                        "ldap_server_metadata": [],
+                        "logs": [
+                            {}
+                        ],
+                        "maintenance_window_start_time": [
+                            {}
+                        ],
+                        "subnet_ids": [
+                            false
+                        ],
+                        "tags_all": {},
+                        "user": [
+                            {
+                                "groups": []
+                            }
+                        ]
+                    }
+                },
+                {
+                    "address": "aws_mq_configuration.queue",
+                    "mode": "managed",
+                    "type": "aws_mq_configuration",
+                    "name": "queue",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?\u003e\n\u003cbroker xmlns=\"http://activemq.apache.org/schema/core\"\u003e\n  \u003cplugins\u003e\n    \u003cforcePersistencyModeBrokerPlugin persistenceFlag=\"true\"/\u003e\n    \u003cstatisticsBrokerPlugin/\u003e\n    \u003ctimeStampingBrokerPlugin ttlCeiling=\"86400000\" zeroExpirationOverride=\"86400000\"/\u003e\n  \u003c/plugins\u003e\n\u003c/broker\u003e\n",
+                        "description": "ActiveMQ Configuration",
+                        "engine_type": "ActiveMQ",
+                        "engine_version": "5.15.15",
+                        "name": "maxe-queue",
+                        "tags": null
+                    },
+                    "sensitive_values": {
+                        "tags_all": {}
+                    }
+                }
+            ]
+        }
+    },
+    "resource_changes": [
+        {
+            "address": "aws_mq_broker.queue",
+            "mode": "managed",
+            "type": "aws_mq_broker",
+            "name": "queue",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "apply_immediately": true,
+                    "auto_minor_version_upgrade": true,
+                    "broker_name": "max-queue",
+                    "configuration": [
+                        {}
+                    ],
+                    "deployment_mode": "SINGLE_INSTANCE",
+                    "encryption_options": [],
+                    "engine_type": "ActiveMQ",
+                    "engine_version": "5.15.15",
+                    "host_instance_type": "mq.t2.micro",
+                    "ldap_server_metadata": [],
+                    "logs": [
+                        {
+                            "audit": "true",
+                            "general": true
+                        }
+                    ],
+                    "maintenance_window_start_time": [
+                        {
+                            "day_of_week": "SUNDAY",
+                            "time_of_day": "02:00",
+                            "time_zone": "UTC"
+                        }
+                    ],
+                    "publicly_accessible": false,
+                    "security_groups": null,
+                    "subnet_ids": [
+                        "123.121.123.121"
+                    ],
+                    "tags": null,
+                    "user": [
+                        {
+                            "console_access": true,
+                            "groups": [],
+                            "password": "testtsdsfesttesttesttesttesttesttest",
+                            "username": "root"
+                        }
+                    ]
+                },
+                "after_unknown": {
+                    "arn": true,
+                    "authentication_strategy": true,
+                    "configuration": [
+                        {
+                            "id": true,
+                            "revision": true
+                        }
+                    ],
+                    "encryption_options": [],
+                    "id": true,
+                    "instances": true,
+                    "ldap_server_metadata": [],
+                    "logs": [
+                        {}
+                    ],
+                    "maintenance_window_start_time": [
+                        {}
+                    ],
+                    "storage_type": true,
+                    "subnet_ids": [
+                        false
+                    ],
+                    "tags_all": true,
+                    "user": [
+                        {
+                            "groups": []
+                        }
+                    ]
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "configuration": [
+                        {}
+                    ],
+                    "encryption_options": [],
+                    "instances": [],
+                    "ldap_server_metadata": [],
+                    "logs": [
+                        {}
+                    ],
+                    "maintenance_window_start_time": [
+                        {}
+                    ],
+                    "subnet_ids": [
+                        false
+                    ],
+                    "tags_all": {},
+                    "user": true
+                }
+            }
+        },
+        {
+            "address": "aws_mq_configuration.queue",
+            "mode": "managed",
+            "type": "aws_mq_configuration",
+            "name": "queue",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "data": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?\u003e\n\u003cbroker xmlns=\"http://activemq.apache.org/schema/core\"\u003e\n  \u003cplugins\u003e\n    \u003cforcePersistencyModeBrokerPlugin persistenceFlag=\"true\"/\u003e\n    \u003cstatisticsBrokerPlugin/\u003e\n    \u003ctimeStampingBrokerPlugin ttlCeiling=\"86400000\" zeroExpirationOverride=\"86400000\"/\u003e\n  \u003c/plugins\u003e\n\u003c/broker\u003e\n",
+                    "description": "ActiveMQ Configuration",
+                    "engine_type": "ActiveMQ",
+                    "engine_version": "5.15.15",
+                    "name": "maxe-queue",
+                    "tags": null
+                },
+                "after_unknown": {
+                    "arn": true,
+                    "authentication_strategy": true,
+                    "id": true,
+                    "latest_revision": true,
+                    "tags_all": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "tags_all": {}
+                }
+            }
+        }
+    ],
+    "configuration": {
+        "provider_config": {
+            "aws": {
+                "name": "aws",
+                "expressions": {
+                    "region": {
+                        "constant_value": "us-west-2"
+                    },
+                    "s3_force_path_style": {
+                        "constant_value": true
+                    },
+                    "skip_credentials_validation": {
+                        "constant_value": true
+                    },
+                    "skip_metadata_api_check": {
+                        "constant_value": true
+                    },
+                    "skip_requesting_account_id": {
+                        "constant_value": true
+                    }
+                }
+            }
+        },
+        "root_module": {
+            "resources": [
+                {
+                    "address": "aws_mq_broker.queue",
+                    "mode": "managed",
+                    "type": "aws_mq_broker",
+                    "name": "queue",
+                    "provider_config_key": "aws",
+                    "provisioners": [
+                        {
+                            "type": "local-exec",
+                            "expressions": {
+                                "command": {
+                                    "references": [
+                                        "self.id",
+                                        "self"
+                                    ]
+                                }
+                            }
+                        },
+                        {
+                            "type": "local-exec",
+                            "expressions": {
+                                "command": {
+                                    "references": [
+                                        "self.id",
+                                        "self"
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "expressions": {
+                        "apply_immediately": {
+                            "constant_value": true
+                        },
+                        "auto_minor_version_upgrade": {
+                            "constant_value": true
+                        },
+                        "broker_name": {
+                            "constant_value": "max-queue"
+                        },
+                        "configuration": [
+                            {
+                                "id": {
+                                    "references": [
+                                        "aws_mq_configuration.queue.id",
+                                        "aws_mq_configuration.queue"
+                                    ]
+                                },
+                                "revision": {
+                                    "references": [
+                                        "aws_mq_configuration.queue.latest_revision",
+                                        "aws_mq_configuration.queue"
+                                    ]
+                                }
+                            }
+                        ],
+                        "deployment_mode": {
+                            "constant_value": "SINGLE_INSTANCE"
+                        },
+                        "engine_type": {
+                            "constant_value": "ActiveMQ"
+                        },
+                        "engine_version": {
+                            "constant_value": "5.15.15"
+                        },
+                        "host_instance_type": {
+                            "constant_value": "mq.t2.micro"
+                        },
+                        "logs": [
+                            {
+                                "audit": {
+                                    "constant_value": true
+                                },
+                                "general": {
+                                    "constant_value": true
+                                }
+                            }
+                        ],
+                        "maintenance_window_start_time": [
+                            {
+                                "day_of_week": {
+                                    "constant_value": "SUNDAY"
+                                },
+                                "time_of_day": {
+                                    "constant_value": "02:00"
+                                },
+                                "time_zone": {
+                                    "constant_value": "UTC"
+                                }
+                            }
+                        ],
+                        "publicly_accessible": {
+                            "constant_value": false
+                        },
+                        "subnet_ids": {
+                            "constant_value": [
+                                "123.121.123.121"
+                            ]
+                        },
+                        "user": [
+                            {
+                                "console_access": {
+                                    "constant_value": true
+                                },
+                                "password": {
+                                    "constant_value": "testtsdsfesttesttesttesttesttesttest"
+                                },
+                                "username": {
+                                    "constant_value": "root"
+                                }
+                            }
+                        ]
+                    },
+                    "schema_version": 0,
+                    "depends_on": [
+                        "aws_mq_configuration.queue"
+                    ]
+                },
+                {
+                    "address": "aws_mq_configuration.queue",
+                    "mode": "managed",
+                    "type": "aws_mq_configuration",
+                    "name": "queue",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "data": {
+                            "constant_value": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?\u003e\n\u003cbroker xmlns=\"http://activemq.apache.org/schema/core\"\u003e\n  \u003cplugins\u003e\n    \u003cforcePersistencyModeBrokerPlugin persistenceFlag=\"true\"/\u003e\n    \u003cstatisticsBrokerPlugin/\u003e\n    \u003ctimeStampingBrokerPlugin ttlCeiling=\"86400000\" zeroExpirationOverride=\"86400000\"/\u003e\n  \u003c/plugins\u003e\n\u003c/broker\u003e\n"
+                        },
+                        "description": {
+                            "constant_value": "ActiveMQ Configuration"
+                        },
+                        "engine_type": {
+                            "constant_value": "ActiveMQ"
+                        },
+                        "engine_version": {
+                            "constant_value": "5.15.15"
+                        },
+                        "name": {
+                            "constant_value": "maxe-queue"
+                        }
+                    },
+                    "schema_version": 0
+                }
+            ]
+        }
+    }
+}
