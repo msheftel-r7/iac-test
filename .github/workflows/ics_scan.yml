@@ -18,7 +18,7 @@ jobs:
           base_url: ${{ secrets.ics_base_url }}
           config_name: Marc Github Test
           scan_name: Scan on Push
-          target: /sample_tf/static_website_ssl_cloudfront_private_s3/plan.json
+          target: plan.json
       # recommended to surface results to Github Code Scanning
       - name: Upload SARIF file
         if: always()
