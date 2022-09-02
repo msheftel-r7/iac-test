@@ -1,13 +1,19 @@
 on:
   push:
-    # triggers on pushing to non-trunk branches
-    # branches-ignore:    
-    #  - master
-    #  - main
+    # Run any time code is pushed to main
+    branches: [ "main" ]
+  pull_request:
+    #Run any time a PR is created against main
+    branches: [ "main" ]
+  # A schedule trigger could also be created.  For example run every day at midnight
 
 jobs:
   ics-scan-and-upload:
-    name: insightCloudSec scan and upload
+    permissions:
+      # Give minimum permissions needed for job
+      contents: read
+      security-events: write
+    name: insightCloudSec IAC Scan and Upload
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,17 +22,12 @@ jobs:
         with:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
-          config_name: Marc Github Test
-          scan_name: Scan on Push
-          target: cft_example.json
-      - name: read file
-        id: vars
-        run: echo ::set-output name=version::$(cat scan_output.sarif)
-      - name: output file
-        run: echo ${{ steps.vars.outputs.version }}
-      # recommended to surface results to Github Code Scanning
+          config_name: CSA Shift Left Config # Scan configuration created in the insightCloudSec console
+          scan_name: CSA Github IAC Scan #The label applied to the scan results in the insightCloudSec console
+          target: cft_example.json #Name of the file that should be scanned.  This could be the results of a previous step in the workflow
+      # Upload the results so they can be displayed in Github
       - name: Upload SARIF file
         if: always()
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: scan_output.sarif
+          sarif_file: scan_output.sarif # result file created by IAC scan
