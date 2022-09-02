@@ -19,6 +19,11 @@ jobs:
           config_name: Marc Github Test
           scan_name: Scan on Push
           target: cft_example.json
+      - name: read file
+        id: vars
+        run: echo ::set-output name=version::$(cat scan_output.sarif)
+      - name: output file
+        run: echo ${{ steps.vars.outputs.version }}
       # recommended to surface results to Github Code Scanning
       - name: Upload SARIF file
         if: always()
