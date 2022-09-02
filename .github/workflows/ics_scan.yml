@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Scan cloudformation template
-        uses: rapid7/insightcloudsec-actions@v1.0.0
+        uses: rapid7/insightcloudsec-actions@latest
         with:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
