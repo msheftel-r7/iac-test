@@ -9,22 +9,22 @@ on:
 
 jobs:
   ics-scan-and-upload:
-    permissions:
+    # permissions:
       # Give minimum permissions needed for job
-      contents: read
-      security-events: write
+      # contents: read
+      # security-events: write
     name: insightCloudSec IAC Scan and Upload
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Scan cloudformation template
+      - name: Scan IAC template
         uses: rapid7/insightcloudsec-actions@latest
         with:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
           config_name: CSA Shift Left Config # Scan configuration created in the insightCloudSec console
           scan_name: CSA Github IAC Scan #The label applied to the scan results in the insightCloudSec console
-          target: cft_example.json #Name of the file that should be scanned.  This could be the results of a previous step in the workflow
+          target: plan.json #Name of the file that should be scanned.  This could be the results of a previous step in the workflow
       # Upload the results so they can be displayed in Github
       - name: Upload SARIF file
         if: always()
