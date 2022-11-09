@@ -9,10 +9,6 @@ on:
 
 jobs:
   ics-scan-and-upload:
-    # permissions:
-      # Give minimum permissions needed for job
-      # contents: read
-      # security-events: write
     name: insightCloudSec IAC Scan and Upload
     runs-on: ubuntu-latest
     steps:
