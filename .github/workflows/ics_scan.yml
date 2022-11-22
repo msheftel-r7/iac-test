@@ -20,7 +20,7 @@ jobs:
           base_url: ${{ secrets.ics_base_url }}
           config_name: CSA Shift Left Config # Scan configuration created in the insightCloudSec console
           scan_name: CSA Github IAC Scan #The label applied to the scan results in the insightCloudSec console
-          target: cft_example2.json #Name of the file that should be scanned.  This could be the results of a previous step in the workflow
+          target: cft_example.json #Name of the file that should be scanned.  This could be the results of a previous step in the workflow
       # Upload the results so they can be displayed in Github
       - name: Upload SARIF file
         if: always()
