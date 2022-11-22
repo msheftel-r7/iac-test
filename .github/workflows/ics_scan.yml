@@ -9,11 +9,11 @@ on:
 
 jobs:
   ics-scan-and-upload:
-    name: insightCloudSec IAC Scan and Upload
+    name: insightCloudSec scan and upload
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Scan IAC template
+      - name: Scan cloudformation template
         uses: rapid7/insightcloudsec-actions@latest
         with:
           api_key: ${{ secrets.ics_api_key }}
@@ -21,9 +21,9 @@ jobs:
           config_name: CSA Shift Left Config2 # Scan configuration created in the insightCloudSec console
           scan_name: CSA Github IAC Scan #The label applied to the scan results in the insightCloudSec console
           target: cft_example.json #Name of the file that should be scanned.  This could be the results of a previous step in the workflow
-      # Upload the results so they can be displayed in Github
+      # recommended to surface results to Github Code Scanning
       - name: Upload SARIF file
         if: always()
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: scan_output.sarif # result file created by IAC scan
+          sarif_file: scan_output.sarif
