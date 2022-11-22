@@ -1,7 +1,7 @@
 on:
   push:
     # Run any time code is pushed to main
-    branches: [ "main" ]
+    # branches: [ "main" ]
   pull_request:
     #Run any time a PR is created against main
     branches: [ "main" ]
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Scan cloudformation template
-        uses: rapid7/insightcloudsec-actions@latest
+        uses: rapid7/insightcloudsec-actions@v2
         with:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
