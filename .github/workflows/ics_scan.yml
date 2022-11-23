@@ -1,5 +1,5 @@
 on:
-  push:
+  # push:
     # Run any time code is pushed to main
     # branches: [ "main" ]
   pull_request:
