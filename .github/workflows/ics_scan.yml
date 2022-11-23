@@ -1,11 +1,7 @@
 on:
-  # push:
-    # Run any time code is pushed to main
-    # branches: [ "main" ]
   pull_request:
-    #Run any time a PR is created against main
+    # Run any time a PR is created against main
     branches: [ "main" ]
-  # A schedule trigger could also be created.  For example run every day at midnight
 
 jobs:
   ics-scan-and-upload:
@@ -18,9 +14,9 @@ jobs:
         with:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
-          config_name: CSA Shift Left Config2 # Scan configuration created in the insightCloudSec console
-          scan_name: CSA Github IAC Scan #The label applied to the scan results in the insightCloudSec console
-          target: cft_example.json #Name of the file that should be scanned.  This could be the results of a previous step in the workflow
+          config_name: CSA Shift Left Config2
+          scan_name: CSA Github IAC Scan
+          target: cft_example.json
       # recommended to surface results to Github Code Scanning
       - name: Upload SARIF file
         if: always()
